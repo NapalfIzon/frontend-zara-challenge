@@ -4,10 +4,10 @@ import type { PhoneDetailApi } from '../types/phone-detail.api.types';
 
 export const phonesService = {
   getPhones: () => {
-    return httpGet<GetPhonesResponse>('/products');
+    return httpGet<GetPhonesResponse>('/phones');
   },
 
   getPhoneById: (id: string) => {
-    return httpGet<PhoneDetailApi>(`/products/${id}`);
+    return httpGet<PhoneDetailApi>(`/phones/${id}`);
   },
 };
