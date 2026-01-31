@@ -6,8 +6,8 @@
     "coverage": "vitest run --coverage",
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.tsx --fix",
     "prepare": "husky",
     "start": "next start",
     "test": "vitest run"
@@ -26,6 +26,7 @@
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "eslint-plugin-unused-imports": "^4.3.0",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
