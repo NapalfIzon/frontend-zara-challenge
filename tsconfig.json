@@ -15,7 +15,9 @@
     "incremental": true,
     "baseUrl": "src",
     "paths": {
-      "@src/*": ["./*"]
+      "@src/*": ["./*"],
+      "@phoneServices/*": ["./features/phones/services/*"],
+      "@phoneTypes/*": ["./features/phones/types/*"]
     },
     "plugins": [
       {
