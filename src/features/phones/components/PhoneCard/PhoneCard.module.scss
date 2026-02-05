@@ -1,0 +1,122 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-card {
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-white);
+
+  padding: var(--space-md);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: none;
+  border-right: var(--border-hairline);
+  border-bottom: var(--border-hairline);
+
+  border-left: var(--border-hairline);
+
+  &:first-child {
+    border-top: var(--border-hairline);
+  }
+
+  &__image-wrap {
+    width: 100%;
+    height: 257px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  &__image-frame {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    max-height: 100%;
+
+    object-fit: contain;
+    display: block;
+  }
+
+  &__meta {
+    min-height: 31px;
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-brand);
+    text-transform: uppercase;
+  }
+
+  &__name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+    color: var(--color-black);
+    text-transform: uppercase;
+  }
+
+  &__price {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+    color: var(--color-black);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    border-left: none;
+
+    &:nth-child(2n + 1) {
+      border-left: var(--border-hairline);
+    }
+
+    &:nth-child(-n + 2) {
+      border-top: var(--border-hairline);
+    }
+
+    &__image-wrap {
+      height: 290px;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    border-left: none;
+
+    &:nth-child(5n + 1) {
+      border-left: var(--border-hairline);
+    }
+
+    &:nth-child(-n + 5) {
+      border-top: var(--border-hairline);
+    }
+
+    &__image-wrap {
+      height: 100%;
+    }
+
+    &__image {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
