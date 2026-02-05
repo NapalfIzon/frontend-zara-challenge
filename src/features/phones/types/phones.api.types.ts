@@ -1,4 +1,4 @@
-export interface PhoneListItemApi {
+export type PhoneListItemApi = {
   id: string;
   brand: string;
   name: string;

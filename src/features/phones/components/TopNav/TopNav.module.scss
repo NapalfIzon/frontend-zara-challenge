@@ -1,0 +1,64 @@
+.top-nav {
+  height: 80px;
+  padding: 0 var(--space-md);
+
+  &__nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__badge {
+    margin-left: var(--space-xs);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 var(--space-3xl);
+
+    &__brand {
+      svg {
+        height: 24px;
+        width: 74px;
+      }
+    }
+  }
+
+  @media (min-width: 1025px) {
+    padding: 0 var(--space-4xl);
+
+    &__brand {
+      svg {
+        height: 24px;
+        width: 74px;
+      }
+    }
+
+    &__action {
+      width: 33px;
+      height: 26px;
+    }
+  }
+}
