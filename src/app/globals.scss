@@ -7,6 +7,8 @@
   --color-gray-600: #666666;
   --color-text-input: #aaaaaa;
   --color-text-brand: #79736d;
+  --color-fieldset: #cccccc;
+  --color-scrollbar: #cccccc;
 
   /* Typography */
   --font-base: Helvetica, Arial, sans-serif;
@@ -28,12 +30,20 @@
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 36px;
-  --space-3xl: 40px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 30px;
+  --space-3xl: 32px;
+  --space-4xl: 36px;
 
-  --space-4xl: 100px;
+  /* Layout scale */
+  --layout-xs: 40px;
+  --layout-sm: 48px;
+  --layout-md: 80px;
+  --layout-lg: 88px;
+  --layout-xl: 100px;
+  --layout-2xl: 121px;
+  --layout-3xl: 188px;
 
   /* Breakpoints */
   --breakpoint-md: 768px;
