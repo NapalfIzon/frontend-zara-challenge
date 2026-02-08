@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-const BrandLogo = (props: SVGProps<SVGSVGElement>) => {
+const BrandIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="77"
@@ -44,4 +44,4 @@ const BrandLogo = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export default BrandLogo;
+export default BrandIcon;

@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-const EraseLogo = (props: SVGProps<SVGSVGElement>) => {
+const EraseIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       viewBox="0 0 20 19"
@@ -18,4 +18,4 @@ const EraseLogo = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export default EraseLogo;
+export default EraseIcon;

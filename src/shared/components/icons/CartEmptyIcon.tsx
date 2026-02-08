@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-const CartEmptyLogo = (props: SVGProps<SVGSVGElement>) => {
+const CartEmptyIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="18"
@@ -20,4 +20,4 @@ const CartEmptyLogo = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export default CartEmptyLogo;
+export default CartEmptyIcon;
