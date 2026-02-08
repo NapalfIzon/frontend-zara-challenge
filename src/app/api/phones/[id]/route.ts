@@ -1,12 +1,18 @@
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY || '';
 
-export const GET = async (_req: Request, { params }: { params: { id: string } }) => {
+type RouteContext = {
+  params: Promise<{ id: string }>;
+};
+
+export const GET = async (_req: Request, { params }: RouteContext) => {
+  const { id } = await params;
+
   try {
-    const response = await axios.get(`${API_URL}/products/${params.id}`, {
+    const response = await axios.get(`${API_URL}/products/${id}`, {
       headers: {
         'x-api-key': API_KEY,
       },

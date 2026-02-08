@@ -1,4 +1,5 @@
 import { httpGet } from '@src/services/http/httpClient';
+import { serverHttpClient } from '@src/services/http/serverHttpClient';
 import type {
   PhoneListItemApi,
   GetPhonesResponse,
@@ -17,7 +18,9 @@ export const phonesService = {
     return Array.from(responseMap.values());
   },
 
-  getPhoneById: (id: string) => {
-    return httpGet<PhoneDetailApi>(`/phones/${id}`);
+  getPhoneById: async (id: string): Promise<PhoneDetailApi> => {
+    const response = await serverHttpClient.get<PhoneDetailApi>(`/phones/${id}`);
+
+    return response.data;
   },
 };
