@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { useCartCount } from '@src/features/cart/hooks/useCartCount';
-import BrandLogo from '@src/components/icons/BrandLogo';
-import CartEmptyLogo from '@src/components/icons/CartEmptyLogo';
-import CartLogo from '@src/components/icons/CartLogo';
+import BrandIcon from '@src/shared/components/icons/BrandIcon';
+import CartEmptyIcon from '@src/shared/components/icons/CartEmptyIcon';
+import CartIcon from '@src/shared/components/icons/CartIcon';
 
 import styles from './TopNav.module.scss';
 
@@ -15,7 +15,7 @@ const TopNav = () => {
     <header className={styles['top-nav']}>
       <nav className={styles['top-nav__nav']} aria-label="Primary">
         <Link href="/" className={styles['top-nav__brand']} aria-label="Go to homepage">
-          <BrandLogo className={styles['top-nav__logo']} />
+          <BrandIcon className={styles['top-nav__logo']} />
         </Link>
 
         <div className={styles['top-nav__actions']}>
@@ -24,7 +24,7 @@ const TopNav = () => {
             className={styles['top-nav__action']}
             aria-label={`Shopping cart with ${itemsCounter} items`}
           >
-            {itemsCounter > 0 ? <CartLogo /> : <CartEmptyLogo />}
+            {itemsCounter > 0 ? <CartIcon /> : <CartEmptyIcon />}
             <span className={styles['top-nav__badge']} aria-hidden="true">
               {itemsCounter}
             </span>

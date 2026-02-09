@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const CART_STORAGE_KEY = 'cartItems';
 
-const readCartItems = (): number => {
+export const readCartItems = (): number => {
   if (globalThis.window === undefined) return 0;
 
   try {

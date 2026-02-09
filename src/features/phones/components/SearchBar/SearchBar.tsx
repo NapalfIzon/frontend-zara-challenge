@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import EraseLogo from '@src/components/icons/EraseLogo';
+import EraseIcon from '@src/shared/components/icons/EraseIcon';
 
 import styles from './SearchBar.module.scss';
 
@@ -41,7 +41,7 @@ const SearchBar = ({ value, onChange }: SearchBarProps) => {
           onClick={handleClear}
           aria-label="Clear search"
         >
-          <EraseLogo />
+          <EraseIcon />
         </button>
       )}
     </div>

@@ -17,12 +17,11 @@
     outline: none;
     background: transparent;
 
-    font-family: var(--font-base);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-light);
     color: var(--color-black);
 
-    padding-right: var(--space-lg);
+    padding-right: var(--space-xl);
 
     &::placeholder {
       color: var(--color-gray-600);

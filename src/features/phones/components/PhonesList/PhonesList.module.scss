@@ -2,7 +2,7 @@
 
 .phones-list {
   &__main {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-xl) var(--space-md);
   }
 
   &__results {
@@ -13,7 +13,6 @@
   }
 
   &__results-count {
-    font-family: var(--font-base);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-light);
     color: var(--color-black);
@@ -29,9 +28,17 @@
   }
 
   &__grid {
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-4xl);
     display: grid;
     gap: 0;
+
+    border-top: var(--border-hairline);
+    border-left: var(--border-hairline);
+
+    > * {
+      border-right: var(--border-hairline);
+      border-bottom: var(--border-hairline);
+    }
   }
 
   @media (min-width: $breakpoint-md) {
