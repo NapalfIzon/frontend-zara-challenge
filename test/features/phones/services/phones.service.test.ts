@@ -1,9 +1,13 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
+
 import { phonesService } from '@src/features/phones/services/phones.service';
 import { httpGet } from '@src/services/http/httpClient';
+import { serverHttpClient } from '@src/services/http/serverHttpClient';
+
 import { duplicatedPhones, mockedPhoneDetail } from '@test/mocks/mockedPhones';
 
 vi.mock('@src/services/http/httpClient');
+vi.mock('@src/services/http/serverHttpClient');
 
 describe('phonesService', () => {
   afterEach(() => {
@@ -31,11 +35,13 @@ describe('phonesService', () => {
 
   describe('getPhoneById', () => {
     it('should call the correct endpoint with phone id', async () => {
-      vi.mocked(httpGet).mockResolvedValue(mockedPhoneDetail);
+      vi.mocked(serverHttpClient.get).mockResolvedValue({
+        data: mockedPhoneDetail,
+      });
 
       const result = await phonesService.getPhoneById('1');
 
-      expect(httpGet).toHaveBeenCalledWith('/phones/1');
+      expect(serverHttpClient.get).toHaveBeenCalledWith('/phones/1');
       expect(result).toEqual(mockedPhoneDetail);
     });
   });

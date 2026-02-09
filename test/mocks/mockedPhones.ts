@@ -12,6 +12,16 @@ export const duplicatedPhones: PhoneListItemApi[] = [
   { id: '2', brand: 'Samsung', name: 'Galaxy', basePrice: 900, imageUrl: '' },
 ];
 
+export const mockedStorageOptions = [
+  { capacity: '128 GB', price: 0 },
+  { capacity: '256 GB', price: 100 },
+];
+
+export const mockedColorOptions = [
+  { name: 'Black', hexCode: '#000', imageUrl: 'img1' },
+  { name: 'White', hexCode: '#fff', imageUrl: 'img2' },
+];
+
 export const mockedPhoneDetail: PhoneDetailApi = {
   id: '1',
   brand: 'Apple',
@@ -29,7 +39,7 @@ export const mockedPhoneDetail: PhoneDetailApi = {
     os: 'iOS',
     screenRefreshRate: '60 Hz',
   },
-  colorOptions: [],
-  storageOptions: [],
+  storageOptions: mockedStorageOptions,
+  colorOptions: mockedColorOptions,
   similarProducts: [],
 };
