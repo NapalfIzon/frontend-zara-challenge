@@ -1,0 +1,51 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-detail {
+  &__specs {
+    margin-top: var(--layout-md);
+
+    h2 {
+      margin-block-start: 0;
+      margin-bottom: var(--layout-xs);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-light);
+      color: var(--color-black);
+    }
+
+    &--row {
+      min-height: 47px;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0;
+      border-bottom: 0.5px solid var(--color-black);
+
+      dt {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-light);
+        color: var(--color-black);
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+      }
+
+      dd {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-light);
+        color: var(--color-black);
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &__specs {
+      margin-top: var(--layout-lg);
+
+      &--row {
+        grid-template-columns: 300px 1fr;
+        gap: var(--layout-sm);
+      }
+    }
+  }
+}

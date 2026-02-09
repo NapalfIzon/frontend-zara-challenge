@@ -1,0 +1,64 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-detail {
+  &__similar {
+    margin-top: var(--layout-md);
+    padding: 0 var(--space-md) var(--layout-2xl) var(--space-md);
+
+    h2 {
+      height: 24px;
+      margin-bottom: var(--layout-xs);
+      margin-block-start: 0;
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-light);
+    }
+
+    &--grid {
+      width: max-content;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+
+      border-top: var(--border-hairline);
+      border-bottom: var(--border-hairline);
+
+      > * {
+        flex: 0 0 344px;
+        border-right: var(--border-hairline);
+      }
+
+      > *:first-child {
+        border-left: var(--border-hairline);
+      }
+    }
+
+    &--scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      padding-bottom: var(--layout-xs);
+      border-bottom: var(--border-hairline);
+
+      scrollbar-color: var(--color-black) var(--color-scrollbar);
+      scrollbar-width: thin;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &__similar {
+      margin-top: var(--layout-lg);
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &__similar {
+      padding: 0 0 0 calc(100vw / 6);
+      margin-bottom: var(--layout-3xl);
+
+      &--scroll {
+        scrollbar-color: var(--color-black) transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-detail {
+  &__back {
+    height: 44px;
+    margin-bottom: var(--space-xxs);
+    padding: 0 var(--space-md);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+    color: var(--color-black);
+
+    &--icon {
+      margin-right: var(--space-xxs);
+    }
+  }
+
+  &__main {
+    padding: 0 var(--space-md);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &__main {
+      margin-top: var(--layout-sm);
+      padding: 0 var(--layout-xs);
+    }
+
+    &__back {
+      display: none;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &__back {
+      display: flex;
+      padding: 0 var(--layout-xl);
+    }
+
+    &__main {
+      padding: 0 calc(100vw / 6);
+      margin-top: 0;
+    }
+  }
+}

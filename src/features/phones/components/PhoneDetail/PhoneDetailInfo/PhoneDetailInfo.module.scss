@@ -1,0 +1,70 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-detail {
+  &__info {
+    margin-top: var(--layout-xs);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 0 0 var(--space-xs) 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-light);
+    color: var(--color-black);
+    text-transform: uppercase;
+  }
+
+  &__price {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-light);
+    color: var(--color-black);
+  }
+
+  &__options {
+    margin-top: var(--layout-xs);
+  }
+
+  &__cta {
+    margin-top: var(--layout-xs);
+    width: 100%;
+    height: 48px;
+    border: none;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &__info {
+      height: 416px;
+      margin-top: 0;
+      padding-top: var(--space-2xl);
+      justify-content: space-between;
+    }
+
+    &__cta {
+      width: 260px;
+      margin-bottom: var(--space-2xl);
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &__info {
+      width: 380px;
+    }
+
+    &__cta {
+      width: 380px;
+    }
+  }
+}

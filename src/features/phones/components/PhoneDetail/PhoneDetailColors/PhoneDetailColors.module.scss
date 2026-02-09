@@ -1,0 +1,54 @@
+@use '@src/styles/breakpoints' as *;
+
+.phone-detail {
+  &__colors {
+    border: 0;
+    padding: 0;
+    margin: var(--space-3xl) 0 0 0;
+
+    legend {
+      margin-bottom: var(--space-lg);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-light);
+      color: var(--color-black);
+    }
+
+    &--options {
+      width: 24px;
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+
+      label {
+        height: 100%;
+        padding: 1px;
+        cursor: pointer;
+        display: flex;
+        border: 0.5px solid var(--color-fieldset);
+
+        &:has(input:checked) {
+          border-color: var(--color-black);
+        }
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+
+    &--swatch {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+    }
+
+    &--name {
+      margin-top: var(--space-xs);
+      margin-block-end: 0;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-light);
+      color: var(--color-black);
+    }
+  }
+}
