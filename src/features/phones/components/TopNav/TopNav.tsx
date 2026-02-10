@@ -1,15 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { useCartCount } from '@src/features/cart/hooks/useCartCount';
 import BrandIcon from '@src/shared/components/icons/BrandIcon';
 import CartEmptyIcon from '@src/shared/components/icons/CartEmptyIcon';
 import CartIcon from '@src/shared/components/icons/CartIcon';
 
 import styles from './TopNav.module.scss';
+import { useCart } from '@src/features/cart/hooks/useCart';
+import { useSyncExternalStore } from 'react';
 
 const TopNav = () => {
-  const itemsCounter = useCartCount();
+  const { items } = useCart();
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+
+  const itemsCounter = isClient ? items.length : 0;
 
   return (
     <header className={styles['top-nav']}>

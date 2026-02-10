@@ -1,6 +1,13 @@
 @use '@src/styles/breakpoints' as *;
 
+.cart-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
 .cart-list {
+  flex: 1;
   padding: 0 var(--space-md);
 
   &__title {
@@ -22,10 +29,8 @@
   }
 
   &__footer {
-    position: relative;
-    bottom: 0;
     width: 100%;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-md) var(--space-xl);
     background-color: var(--color-white);
   }
 

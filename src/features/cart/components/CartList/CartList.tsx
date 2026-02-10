@@ -10,7 +10,7 @@ const CartList = () => {
   const { items } = useCart();
 
   return (
-    <>
+    <div className={styles['cart-page']}>
       <main className={styles['cart-list']}>
         <h1 className={styles['cart-list__title']}>CART ({items.length})</h1>
 
@@ -25,7 +25,7 @@ const CartList = () => {
       <footer className={styles['cart-list__footer']}>
         <CartSummary />
       </footer>
-    </>
+    </div>
   );
 };
 
