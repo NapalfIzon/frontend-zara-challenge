@@ -1,15 +1,24 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import TopNav from '@src/features/phones/components/TopNav/TopNav';
-import { useCartCount } from '@src/features/cart/hooks/useCartCount';
+import { useCart } from '@src/features/cart/hooks/useCart';
 
-vi.mock('@src/features/cart/hooks/useCartCount');
+vi.mock('@src/features/cart/hooks/useCart');
 
 describe('TopNav', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('should render home link', () => {
-    vi.mocked(useCartCount).mockReturnValue(0);
+    vi.mocked(useCart).mockReturnValue({
+      items: [],
+      total: 0,
+      removeItem: vi.fn(),
+    });
 
     render(<TopNav />);
+
     const homeLink = screen.getByRole('link', {
       name: /go to homepage/i,
     });
@@ -18,9 +27,14 @@ describe('TopNav', () => {
   });
 
   it('should render cart link with correct aria-label when cart is empty', () => {
-    vi.mocked(useCartCount).mockReturnValue(0);
+    vi.mocked(useCart).mockReturnValue({
+      items: [],
+      total: 0,
+      removeItem: vi.fn(),
+    });
 
     render(<TopNav />);
+
     const cartLink = screen.getByRole('link', {
       name: /shopping cart with 0 items/i,
     });
@@ -29,9 +43,14 @@ describe('TopNav', () => {
   });
 
   it('should render cart link with correct aria-label when cart has items', () => {
-    vi.mocked(useCartCount).mockReturnValue(3);
+    vi.mocked(useCart).mockReturnValue({
+      items: [{ id: '1' }, { id: '2' }, { id: '3' }] as ReturnType<typeof useCart>['items'],
+      total: 0,
+      removeItem: vi.fn(),
+    });
 
     render(<TopNav />);
+
     const cartLink = screen.getByRole('link', {
       name: /shopping cart with 3 items/i,
     });

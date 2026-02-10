@@ -3,17 +3,27 @@ import { SimilarPhoneApi } from '@src/features/phones/types/phone-detail.api.typ
 
 import styles from './PhoneDetailSimilar.module.scss';
 
-const PhoneDetailSimilar = ({ phones }: { phones: SimilarPhoneApi[] }) => (
-  <section className={styles['phone-detail__similar']} aria-labelledby="similar-title">
-    <h2 id="similar-title">SIMILAR ITEMS</h2>
-    <div className={styles['phone-detail__similar--scroll']}>
-      <div className={styles['phone-detail__similar--grid']} role="list">
-        {phones.map((phone) => (
-          <PhoneCard key={phone.id} phone={phone} />
-        ))}
+const PhoneDetailSimilar = ({ phones }: { phones: SimilarPhoneApi[] }) => {
+  const similarPhones = () => {
+    const phonesMap = new Map<string, SimilarPhoneApi>();
+    for (const phone of phones) {
+      phonesMap.set(phone.id, phone);
+    }
+    return Array.from(phonesMap.values());
+  };
+
+  return (
+    <section className={styles['phone-detail__similar']} aria-labelledby="similar-title">
+      <h2 id="similar-title">SIMILAR ITEMS</h2>
+      <div className={styles['phone-detail__similar--scroll']}>
+        <div className={styles['phone-detail__similar--grid']} role="list">
+          {similarPhones().map((phone) => (
+            <PhoneCard key={phone.id} phone={phone} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default PhoneDetailSimilar;
