@@ -23,7 +23,9 @@ const PhonesList = () => {
         <SearchBar value={searchTerm} onChange={setSearchTerm} />
 
         <div className={styles['phones-list__results']} aria-live="polite" aria-atomic="true">
-          <span className={styles['phones-list__results-count']}>{phones.length} RESULTS</span>
+          <span className={styles['phones-list__results-count']}>
+            {paginatedPhones.length} RESULTS
+          </span>
         </div>
 
         {loading && (
