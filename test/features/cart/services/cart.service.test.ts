@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, afterEach, afterAll } from 'vitest';
 import { cartService } from '@src/features/cart/services/cart.service';
 import { mockedCartItem } from '@test/mocks/mockedCart';
+import { CartItem } from '@src/features/cart/types/cart.types';
 
 const STORAGE_KEY = 'cartItems';
 
@@ -86,6 +87,36 @@ describe('cartService', () => {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
 
       expect(stored).toHaveLength(2);
+    });
+  });
+
+  describe('removeItem', () => {
+    it('should remove the matching item from the cart', () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([mockedCartItem]));
+
+      cartService.removeItem({
+        id: mockedCartItem.id,
+        storage: mockedCartItem.storage,
+        color: mockedCartItem.color,
+      });
+
+      const stored: CartItem[] = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+
+      expect(stored).toEqual([]);
+    });
+
+    it('should not remove items that do not match exactly', () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([mockedCartItem]));
+
+      cartService.removeItem({
+        id: mockedCartItem.id,
+        storage: '512 GB',
+        color: mockedCartItem.color,
+      });
+
+      const stored: CartItem[] = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+
+      expect(stored).toHaveLength(1);
     });
   });
 });
