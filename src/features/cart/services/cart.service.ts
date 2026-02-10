@@ -26,6 +26,22 @@ export const cartService = {
     saveCartItems(items);
     globalThis.dispatchEvent(new Event('storage'));
   },
+
+  removeItem(target: Pick<CartItem, 'id' | 'storage' | 'color'>) {
+    const items = getCartItems();
+
+    const filtered = items.filter(
+      (item) =>
+        !(
+          item.id === target.id &&
+          item.storage === target.storage &&
+          item.color.name === target.color.name
+        ),
+    );
+
+    saveCartItems(filtered);
+    globalThis.dispatchEvent(new Event('storage'));
+  },
 };
 
 const getCartItems = (): CartItem[] => {
